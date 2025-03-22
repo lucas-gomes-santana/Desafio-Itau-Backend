@@ -1,31 +1,36 @@
 package banco.itau.desafio.dto;
 
-import jakarta.validation.constraints.DecimalMin;
+import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 
+import java.util.Locale;
 import java.util.DoubleSummaryStatistics;
 
 
 public class EstatisticasDTO {
 
-    private long count;
-    private double sum;
-    private double avg;
-    private double min;
-    private double max;
+    private final long count;
+    private final double sum;
+    private final double avg;
+    private final double min;
+    private final double max;
 
     public EstatisticasDTO(DoubleSummaryStatistics statistics) {
-        this.count = statistics.getCount();
-        this.sum = statistics.getSum();
-        this.avg = statistics.getAverage();
+        DecimalFormatSymbols symbols = new DecimalFormatSymbols(Locale.US);
+        DecimalFormat df = new DecimalFormat("#.##",symbols);
 
-        // Para não retornar Infinity nos campos min e max
+        this.count = statistics.getCount();
+        this.sum = Double.parseDouble(df.format(statistics.getSum()));
+        this.avg = Double.parseDouble(df.format(statistics.getAverage()));
+
+        // Para retornar 0 ao invés de Infinity nos campos min e max
         if(statistics.getCount() == 0){
             this.min = 0;
             this.max = 0;
         }
         else{
-            this.max = statistics.getMax();
-            this.min = statistics.getMin();
+            this.max = Double.parseDouble(df.format(statistics.getMax()));
+            this.min = Double.parseDouble(df.format(statistics.getMin()));
         }
     }
 
