@@ -75,10 +75,10 @@ Isso irá inserir o valor e a data de uma transação bancária fictícia.
 
 A requisição GET é usada para obter informações sobre os valores das transações feitas na API,como quantidade de transações feitas,os valores bancários mínimo e máximo inserido,e a média e soma de todos os depósitos feitos.Aqui está um exemplo:
 
-Usando método GET,é necessário inserir o Endpoint **estatisticas**.
+Usando método GET,é necessário inserir o Endpoint **estatistica**.
 
 ```bash
-http://localhost:8080/estatisticas
+http://localhost:8080/estatistica
 ```
 
 Faça a requisição e aparecerá todos as informações listadas antes.Aqui está um exemplo:
@@ -103,7 +103,7 @@ O Endpoint de DELETE aqui é o mesmo da requisição POST
 http://localhost:8080/transacao
 ```
 
-Depois de fazer a requisição DELETE e fazer uma do tipo GET,verá que todos os campos do Endpoint de **estatisticas** estarão zerados.Observe o exemplo
+Depois de fazer a requisição DELETE e fazer uma do tipo GET,verá que todos os campos do Endpoint **estatistica** estarão zerados.Observe o exemplo
 ```json
 {
    "count": 0,

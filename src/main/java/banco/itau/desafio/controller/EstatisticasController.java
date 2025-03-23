@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.DoubleSummaryStatistics;
 
 @RestController
-@RequestMapping("/estatisticas")
+@RequestMapping("/estatistica")
 public class EstatisticasController {
 
     private final TransacaoService transacaoService;
